@@ -19,11 +19,10 @@ const UsuarioSchema = Schema({
     },
     rol: {
         type: String,
-        required: true,
+        required: true
     },
     curso: {
         type: String,
-        required: true,
     },
     curso2: {
         type: String,      

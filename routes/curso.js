@@ -13,6 +13,8 @@ const router = Router();
 router.get('/mostrarCurso', getCurso);
 
 router.post('/agregar/curso', [
+    validarJWT,
+    tieneRole('ROL_MAESTRO'),
     check('curso', 'El curso es obligatorio').not().isEmpty(),
     validarCampos,
 ] ,postCurso);
@@ -20,6 +22,8 @@ router.post('/agregar/curso', [
 
 
 router.put('/editarCurso/:id', [
+    validarJWT,
+    tieneRole('ROL_MAESTRO'),
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeCursoPorId ),
     validarCampos

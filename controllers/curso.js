@@ -10,7 +10,7 @@ const getCurso = async (req = request, res = response) => {
 
     const listaCursos = await Promise.all([
         Curso.countDocuments(query),
-        Curso.find(query)
+        Curso.find(query).populate('usuario', 'nombre')
     ]);
 
     res.json({
@@ -22,17 +22,38 @@ const getCurso = async (req = request, res = response) => {
 
 const postCurso = async (req = request, res = response) => {
 
-    //Desestructuración
-    const { curso } = req.body;
-    const CursoGuardadoDB = new Curso({ curso });
+    const curso = req.body.curso.toUpperCase();
 
-    //Guardar en BD
-    await CursoGuardadoDB.save();
+    const cursoDB = await Curso.findOne({ curso })
 
-    res.json({
-        msg: 'Post Api - Post Curso',
-        CursoGuardadoDB
-    });
+    if (cursoDB) {
+        return res.status(400).json({
+            msg: `El curso ${cursoDB.curso}, ya existe.`
+        });
+    }
+
+    //Generar la data a guardar
+    const data = {
+        curso,
+        usuario: req.usuario._id
+    }
+
+    const curse = new Curso(data);
+
+    await curse.save()
+
+    res.status(201).json(curse);
+
+}
+
+const cursoYaExiste = async (req = request, res = response) => {
+    const cursoDB = await Curso.findOne({ curso })
+
+    if (cursoDB) {
+        return res.status(400).json({
+            msg: `El curso ${cursoDB.curso}, ya existe.`
+        });
+    }
 
 }
 
@@ -41,14 +62,19 @@ const putCurso = async (req = request, res = response) => {
 
     
     const { id } = req.params;
-    const { _id, ...resto} = req.body;
- 
-    const cursoEditado = await Curso.findByIdAndUpdate(id, resto);
+    const { estado, usuario, ...resto} = req.body;
 
-    res.json({
+    resto.curso = resto.curso.toUpperCase();
+    resto.usuario = req.usuario._id;
+ 
+    const cursoEditado = await Curso.findByIdAndUpdate(id, resto, { new: true });
+
+    res.status(201).json(cursoEditado);
+
+    /*res.json({
         msg: 'PUT editar user',
         cursoEditado
-    });
+    });*/
 
 }
 
@@ -56,10 +82,6 @@ const deleteCurso = async(req = request, res = response) => {
     //Req.params sirve para traer parametros de las rutas
     const { id } = req.params;
 
-    //Eliminar fisicamente de la DB
-    //const usuarioEliminado = await Usuario.findByIdAndDelete( id);
-
-    //Eliminar cambiando el estado a false
      const cursoEliminado = await Curso.findByIdAndUpdate(id, { estado: false });
 
     res.json({
@@ -72,7 +94,8 @@ module.exports = {
     getCurso,
     postCurso,
     putCurso,
-    deleteCurso
+    deleteCurso,
+    cursoYaExiste
 }
 
 

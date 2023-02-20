@@ -9,6 +9,11 @@ const CursoSchema = Schema({
         type: Boolean,
         default: true
     },
+    usuario: {
+        type: Schema.Types.ObjectId,
+        ref: 'Usuario',
+        required: true
+    }
 });
 
 
