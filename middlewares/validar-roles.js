@@ -25,6 +25,24 @@ const tieneRole = ( ...roles ) => {
 
 }
 
+const esMaestroRole = (req = request, res = response, next) => {
+    //Si no viene el usuario    
+    if (!req.usuario) {
+        return res.status(500).json({
+            msg: 'Se requiere verificar el role sin validar el token primero'
+        });
+    }
+    //Verificar que el rol sea ADMIN_ROLE    
+    const { rol, nombre } = req.usuario;
+    if (rol !== 'ROL_MAESTRO') {
+        return res.status(500).json({
+            msg: `${nombre} no es profesor - No tiene acceso a esta funcion`
+        });
+        
+    }
+    next();
+}
+
 const rolCursoValido = ( ...roles ) => {
 
     return (req = request, res= response, next) => {
@@ -41,24 +59,8 @@ const rolCursoValido = ( ...roles ) => {
 
 }
 
-/*const elRolEs = (rol) => {
-    return(req = request, res= response, next) => {
-        const rol = require('../models/role')
-        if (!rol.includes( req.usuario.rol)) {
-            return res.status(401).json({
-                msg: `Añadir un cuarto curso requiere del siguiente rol: ${ rol }`
-            })
-    
-        }
-
-        next();
-    }
-
-    
-}*/
-
-
 module.exports = {
     tieneRole,
-    rolCursoValido
+    rolCursoValido,
+    esMaestroRole
 }

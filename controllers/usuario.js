@@ -20,12 +20,23 @@ const getUsuarios = async (req = request, res = response) => {
 
 }
 
+
+const getUsuarioPorID = async (req = request, res = response) => {
+
+    const {id} = req.params;
+    const usuarioById = await Usuario.findById( id )
+
+    res.status(201).json(usuarioById);
+}
+
 const postUsuario = async (req = request, res = response) => {
 
     //Desestructuración
     const { nombre, correo, password, rol, curso, curso2, curso3, curso4 } = req.body;
     const usuarioGuardadoDB = new Usuario({ nombre, correo, password, rol, curso,
     curso2, curso3, curso4 });
+
+    
 
     //Encriptar password
     const salt = bcrypt.genSaltSync();
@@ -40,6 +51,7 @@ const postUsuario = async (req = request, res = response) => {
     });
 
 }
+
 
 
 const putUsuario = async (req = request, res = response) => {
@@ -70,9 +82,6 @@ const deleteUsuario = async(req = request, res = response) => {
     //Req.params sirve para traer parametros de las rutas
     const { id } = req.params;
 
-    //Eliminar fisicamente de la DB
-    //const usuarioEliminado = await Usuario.findByIdAndDelete( id);
-
     //Eliminar cambiando el estado a false
      const usuarioEliminado = await Usuario.findByIdAndUpdate(id, { estado: false });
 
@@ -84,9 +93,10 @@ const deleteUsuario = async(req = request, res = response) => {
 
 module.exports = {
     getUsuarios,
+    getUsuarioPorID,
     postUsuario,
     putUsuario,
-    deleteUsuario
+    deleteUsuario,
 }
 
 
