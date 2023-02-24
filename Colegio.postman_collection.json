@@ -10,16 +10,10 @@
 			"name": "login",
 			"request": {
 				"method": "POST",
-				"header": [
-					{
-						"key": "x-token",
-						"value": "",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"correo\": \"archila@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"raw": "{\r\n    \"correo\": \"cancinos@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"Roberto Carlos\",\r\n    \"correo\": \"robertocarlos@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"raw": "{\r\n    \"nombre\": \"Corzoo\",\r\n    \"correo\": \"ocorzo@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -161,7 +155,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/usuarios/mostrar/63f6d4231105213d100521a0",
+					"raw": "localhost:8080/api/usuarios/mostrar/63f824a0cb030e6826a31f97",
 					"host": [
 						"localhost"
 					],
@@ -170,7 +164,7 @@
 						"api",
 						"usuarios",
 						"mostrar",
-						"63f6d4231105213d100521a0"
+						"63f824a0cb030e6826a31f97"
 					]
 				}
 			},
@@ -219,7 +213,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"Luis Guillen\",\r\n    \"correo\": \"guillen@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"raw": "{\r\n    \"nombre\": \"Victor Cancinos\",\r\n    \"correo\": \"cancinos@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -269,13 +263,13 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2YyYTMyYjU5MWY2ZjllZDZkNWIwYTMiLCJpYXQiOjE2NzcxMTY3NTksImV4cCI6MTY3NzEzODM1OX0.0hcUHHkiXDyLV1CNsDcymf1pSGdQZ4Pg7yqml8LoRtE",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2Y4M2FlZmE1OTQyMmY1ZDA3NTMzNjgiLCJpYXQiOjE2NzcyMTI0MTIsImV4cCI6MTY3NzIzNDAxMn0.vGWjwbHrq4SMdvdCziy5R9-W1-5DvRkKiI_kaKghpQE",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"curso\": \"seminario\"\r\n}",
+					"raw": "{\r\n    \"curso\": \"Taller IN6BM\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -305,7 +299,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2YzYWE1NjA0MmQ4NWYyMmNiNjRhM2EiLCJpYXQiOjE2NzY5MTM2NTMsImV4cCI6MTY3NjkzNTI1M30.W9zdDbxPD4abgFLlKnpajyyC6odiyOPOQZiu7UfGpTA",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2Y4M2FlZmE1OTQyMmY1ZDA3NTMzNjgiLCJpYXQiOjE2NzcyMTI1OTYsImV4cCI6MTY3NzIzNDE5Nn0.eUssVe-nHw39NFXGRwcHYIQD6SU2Knk8yVpol4RLKdI",
 						"type": "text"
 					}
 				],
@@ -319,7 +313,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/cursos/editarCurso/63f2a3a3591f6f9ed6d5b0a8",
+					"raw": "localhost:8080/api/cursos/editarCurso/63f83b23a59422f5d075336e",
 					"host": [
 						"localhost"
 					],
@@ -328,7 +322,7 @@
 						"api",
 						"cursos",
 						"editarCurso",
-						"63f2a3a3591f6f9ed6d5b0a8"
+						"63f83b23a59422f5d075336e"
 					]
 				}
 			},
@@ -341,7 +335,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2YzYTk0ZTA0MmQ4NWYyMmNiNjRhMjMiLCJpYXQiOjE2NzY5MTM3MjIsImV4cCI6MTY3NjkzNTMyMn0.1anTognVOQGm2sxs62JpgwQsguBMN_D6bEHaW5x3pmo",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2Y4M2FlZmE1OTQyMmY1ZDA3NTMzNjgiLCJpYXQiOjE2NzcyMTI1OTYsImV4cCI6MTY3NzIzNDE5Nn0.eUssVe-nHw39NFXGRwcHYIQD6SU2Knk8yVpol4RLKdI",
 						"type": "text"
 					}
 				],
@@ -350,7 +344,7 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "localhost:8080/api/cursos/eliminarCurso/63f3a9c2042d85f22cb64a34",
+					"raw": "localhost:8080/api/cursos/eliminarCurso/63f83b23a59422f5d075336e",
 					"host": [
 						"localhost"
 					],
@@ -359,7 +353,93 @@
 						"api",
 						"cursos",
 						"eliminarCurso",
-						"63f3a9c2042d85f22cb64a34"
+						"63f83b23a59422f5d075336e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT ASIGNACIONES CURSO",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2Y4M2I1MWE1OTQyMmY1ZDA3NTMzNzIiLCJpYXQiOjE2NzcyMTI1MDQsImV4cCI6MTY3NzIzNDEwNH0.8agCj3MK7uuSsMc4J8qhLHMj45f_AI86M7J9rFtX37A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/cursos/agregarCurso/63f82483cb030e6826a31f8f",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cursos",
+						"agregarCurso",
+						"63f82483cb030e6826a31f8f"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET cursos por maestro",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2Y4M2FlZmE1OTQyMmY1ZDA3NTMzNjgiLCJpYXQiOjE2NzcyMTI1OTYsImV4cCI6MTY3NzIzNDE5Nn0.eUssVe-nHw39NFXGRwcHYIQD6SU2Knk8yVpol4RLKdI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/cursos/mostrarCursosMaestro",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cursos",
+						"mostrarCursosMaestro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET cursos de alumno",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2Y4M2I1MWE1OTQyMmY1ZDA3NTMzNzIiLCJpYXQiOjE2NzcyMTI1MDQsImV4cCI6MTY3NzIzNDEwNH0.8agCj3MK7uuSsMc4J8qhLHMj45f_AI86M7J9rFtX37A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/cursos/mostrarCursosAlumno",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cursos",
+						"mostrarCursosAlumno"
 					]
 				}
 			},

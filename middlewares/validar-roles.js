@@ -43,6 +43,24 @@ const esMaestroRole = (req = request, res = response, next) => {
     next();
 }
 
+const esAlumnoRole = (req = request, res = response, next) => {
+    //Si no viene el usuario    
+    if (!req.usuario) {
+        return res.status(500).json({
+            msg: 'Se requiere verificar el role sin validar el token primero'
+        });
+    }
+    //Verificar que el rol sea ADMIN_ROLE    
+    const { rol, nombre } = req.usuario;
+    if (rol !== 'ROL_ALUMNO') {
+        return res.status(500).json({
+            msg: `${nombre} no es profesor - No tiene acceso a esta funcion`
+        });
+        
+    }
+    next();
+}
+
 const rolCursoValido = ( ...roles ) => {
 
     return (req = request, res= response, next) => {
@@ -62,5 +80,6 @@ const rolCursoValido = ( ...roles ) => {
 module.exports = {
     tieneRole,
     rolCursoValido,
-    esMaestroRole
+    esMaestroRole,
+    esAlumnoRole
 }

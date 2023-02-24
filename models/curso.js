@@ -13,7 +13,12 @@ const CursoSchema = Schema({
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
         required: true
-    }
+    },
+    alumnos: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Usuario',
+        default: null
+    }],
 });
 
 

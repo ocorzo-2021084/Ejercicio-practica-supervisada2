@@ -78,6 +78,15 @@ const putUsuario = async (req = request, res = response) => {
 
 }
 
+const putAgregarCursoAlumno = async(req = request, res = response) =>{
+
+    const {id} = req.params;
+    const {nombre, correo, password, rol, ...resto} = req.body;
+
+    const cursoAsignado = await Usuario.findByIdAndUpdate(id, {})
+
+}
+
 const deleteUsuario = async(req = request, res = response) => {
     //Req.params sirve para traer parametros de las rutas
     const { id } = req.params;

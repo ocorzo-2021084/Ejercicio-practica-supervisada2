@@ -3,7 +3,7 @@ const { Router } = require('express');
 const { check } = require('express-validator');
 const { cursoYaExiste } = require('../controllers/curso');
 const { getUsuarios, postUsuario, putUsuario, deleteUsuario, validacionCurso, getUsuarioPorID } = require('../controllers/usuario');
-const { esRoleValido, emailExiste, existeUsuarioPorId, esCursoValido, cursoValido, esElCursoValido} = require('../helpers/db-validators');
+const { esRoleValido, emailExiste, existeUsuarioPorId, esCursoValido, cursoValido, esElCursoValido, existeCursoPorId} = require('../helpers/db-validators');
 const { validarCampos } = require('../middlewares/validar-campos');
 const { validarJWT } = require('../middlewares/validar-jwt');
 const { tieneRole, rolCursoValido, esMaestroRole } = require('../middlewares/validar-roles');
@@ -21,6 +21,12 @@ router.post('/agregar/alumno', [
     check('correo').custom( emailExiste ),
     check('rol').default('ROL_ALUMNO').custom( esRoleValido ),
     validarCampos,
+] ,postUsuario);
+
+router.put('/agregarCursoAlumno/:id', [
+    validarJWT,
+    check('id', 'No es un ID válido').isMongoId(),
+    check('id').custom(existeCursoPorId)
 ] ,postUsuario);
 
 router.put('/editarAlumno/:id', [

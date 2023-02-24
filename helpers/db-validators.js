@@ -55,6 +55,14 @@ const emailExiste = async (correo = '') => {
 }
 
 
+const conteoAlumnos = async (alumnos = '') => {
+    
+    
+}
+
+
+
+
 const existeUsuarioPorId = async (id) => {
 
     //Verificar si el ID existe
@@ -77,6 +85,15 @@ const existeCursoPorId = async (id) => {
 
 }
 
+const numAsignaciones = async (alumnos) => {
+    return (req = request, res= response, next) => {
+    if (alumno.lenght > 3) {
+        throw new Error(`El alumno ya esta asignado en tres cursos ya registrados en la DB`);
+    }
+    next();
+}
+}
+
 
 
 module.exports = {
@@ -86,5 +103,6 @@ module.exports = {
     existeUsuarioPorId,
     existeCursoPorId,
     cursoValido,
-    esElCursoValido
+    esElCursoValido,
+    numAsignaciones,
 }

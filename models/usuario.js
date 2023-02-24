@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, default: mongoose } = require('mongoose');
 
 const UsuarioSchema = Schema({
     nombre: {
@@ -21,25 +21,9 @@ const UsuarioSchema = Schema({
         type: String,
         required: true
     },
-    curso: {
-        type: String,
-    },
-    curso2: {
-        type: String,      
-    },
-    curso3: {
-        type: String,    
-    },
-    curso4: {
-        type: String,
-    },
     estado: {
         type: Boolean,
         default: true
-    },
-    google: {
-        type: Boolean,
-        default: false
     }
 });
 
