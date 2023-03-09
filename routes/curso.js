@@ -80,11 +80,12 @@ router.put(
 
 router.put('/agregarCurso/:id', [
     validarJWT,
+    tieneRole("ROL_ALUMNO"),
     check('id', 'No es un id de Mongo VÃ¡lido').isMongoId(),
     check('id').custom(existeCursoPorId),
     validarAsignacionCursos,
     validarCampos,
-    validarAlumnoExiste,
+    //validarAlumnoExiste,
 ], putAgregarCurso);
 
 router.delete(
